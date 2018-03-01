@@ -41,3 +41,7 @@
   "t if list is a list of one element"
   (and (consp list) (not (cdr list))))
 
+
+(defun make-circular (list)
+  "Turn a list into a circular list"
+  (setf (cdr (last list)) list))

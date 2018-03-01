@@ -10,4 +10,5 @@
            #:split-at
            #:take
            #:drop
-           #:subseq*))
+           #:subseq*
+           #:make-circular))
