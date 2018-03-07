@@ -45,3 +45,6 @@
 (defun make-circular (list)
   "Turn a list into a circular list"
   (setf (cdr (last list)) list))
+
+(defun assoc-val (item alist &rest assoc-kw-args)
+  (cdr (apply #'assoc item alist assoc-kw-args)))
