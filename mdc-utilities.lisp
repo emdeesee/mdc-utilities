@@ -21,6 +21,15 @@
                (nreverse (cons source acc)))))
     (aux list nil)))
 
+(defun partition-by (pred list)
+  "Partition list into two sublists. Elements that evaluate to non-nil
+for pred will be in the first list. Other elements will be in the second
+list."
+  (loop for elt in list
+     if (funcall pred elt) collect elt into true
+     else collect elt into false
+     finally (return (list true false))))
+
 (defun split-at (n list)
   "Return two subsequences, the first with elements 0..n-1 and the second with elements n..last"
   (labels ((aux (n source prefix)

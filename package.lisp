@@ -7,6 +7,7 @@
   (:nicknames #:mdcu #:mdc-util)
   (:use #:cl #:alexandria)
   (:export #:partition
+           #:partition-by
            #:split-at
            #:take
            #:drop
