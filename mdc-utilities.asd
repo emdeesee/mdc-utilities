@@ -10,5 +10,6 @@
   :version "0.0.1"
   :serial t
   :components ((:file "package")
-               (:file "sequence"))
+               (:file "sequence")
+               (:file "file"))
   :depends-on (:alexandria))
