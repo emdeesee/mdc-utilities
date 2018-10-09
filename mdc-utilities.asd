@@ -12,7 +12,8 @@
   :components ((:file "package")
                (:file "sequence")
                (:file "file"))
-  :depends-on (:alexandria))
+  :depends-on (:alexandria)
+  :in-order-to ((test-op (test-op "mdc-utilities/tests"))))
 
 
 (asdf:defsystem #:mdc-utilities/tests
@@ -20,6 +21,8 @@
   :author "Michael Cornelius <kouneriasu@gmail.com>"
   :version "0.0.1"
   :depends-on (:mdc-utilities :fiveam)
+  :perform (test-op (o s)
+                    (uiop:symbol-call :fiveam :run! 'mdc-utilities-tests:all-tests))
   :components ((:module "tests"
                 :serial t
                 :components ((:file "package")
