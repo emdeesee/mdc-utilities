@@ -4,7 +4,7 @@
 
 
 (asdf:defsystem #:mdc-utilities
-  :description "Describe mdc-utilities here"
+  :description "My utility functions"
   :author "Michael Cornelius <kouneriasu@gmail.com>"
   :license  "MIT"
   :version "0.0.1"
