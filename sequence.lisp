@@ -56,4 +56,5 @@ list."
   (setf (cdr (last list)) list))
 
 (defun assoc-val (item alist &rest assoc-kw-args)
+  "Retrieve the value related to a key from an alist"
   (cdr (apply #'assoc item alist assoc-kw-args)))
