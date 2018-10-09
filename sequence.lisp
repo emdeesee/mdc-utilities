@@ -1,4 +1,4 @@
-;;;; mdc-utilities.lisp
+;;;; sequence.lisp
 ;;
 ;;;; Copyright (c) 2018 Michael Cornelius <kouneriasu@gmail.com>
 
