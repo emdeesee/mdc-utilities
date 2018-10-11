@@ -26,4 +26,5 @@
   :components ((:module "tests"
                 :serial t
                 :components ((:file "package")
-                             (:file "main")))))
+                             (:file "main")
+                             (:file "sequence-tests")))))
