@@ -32,7 +32,6 @@ list."
 
 (defun split-at (n list)
   "Return two subsequences, the first with elements 0..n-1 and the second with elements n..last"
-  (if (< n 1) (error (format nil "Invalid index, n = ~a" n)))
   (labels ((aux (n source prefix)
              (if (or (null source) (zerop n))
                  (list (nreverse prefix) source)

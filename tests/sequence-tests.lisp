@@ -49,4 +49,56 @@
   :description "testing mdc-utilities:split-at"
   (is (equal (mdcu:split-at 0 nil) (list nil nil)))
   (is (equal (mdcu:split-at 42 nil) (list nil nil)))
-  (is (equal (mdcu:split-at -3 nil) (list nil nil))))
+  (is (equal (mdcu:split-at -3 nil) (list nil nil)))
+  (let ((list '(0 1 2 3 4 5 6 7)))
+    (is (equal (mdcu:split-at 0 list) (list nil list)))
+    (is (equal (mdcu:split-at (length list) list) (list list nil)))
+    (is (equal (mdcu:split-at 1 list) (list (list 0) (cdr list))))
+    (is (equal (mdcu:split-at 2 list) (list (list 0 1) (cddr list))))
+    (is (equal (mdcu:split-at 4 list) (list (list 0 1 2 3) (nthcdr 4 list))))
+    (is (equal (mdcu:split-at 6 list) (list (list 0 1 2 3 4 5) (nthcdr 6 list))))))
+
+(test take-tests
+  :description "testing mdc-utilities:take"
+  (is (null (mdcu:take 0 nil)))
+  (is (null (mdcu:take 42 nil)))
+  (let ((list '(0 1 2 3 4 5 6 7)))
+    (is (null (mdcu:take 0 list)))
+    (is (equal (mdcu:take (length list) list) list))
+    (is (equal (mdcu:take 1 list) '(0)))
+    (is (equal (mdcu:take 3 list) '(0 1 2)))
+    (is (equal (mdcu:take 5 list) '(0 1 2 3 4)))))
+
+(test drop-tests
+  :description "testing mdc-utilities:drop"
+  (is (null (mdcu:drop 0 nil)))
+  (is (null (mdcu:drop 42 nil)))
+  (let ((list '(0 1 2 3 4 5 6 7)))
+    (is (equal (mdcu:drop 0 list) list))
+    (is (null (mdcu:drop (length list) list)))
+    (is (equal (mdcu:drop 1 list) (cdr list)))
+    (is (equal (mdcu:drop 3 list) (nthcdr 3 list)))
+    (is (equal (mdcu:drop 5 list) (nthcdr 5 list)))))
+
+(test singlep-tests
+  :description "testing mdc-utilities:singlep"
+  (is (null (mdcu:singlep nil)))
+  (is (mdcu:singlep '(1)))
+  (is-false (mdcu:singlep '(1 2))))
+
+(test make-circular-tests
+  :description "testing mdc-utilities:make-circular"
+  (signals type-error (mdcu:make-circular nil))
+  (let* ((list '(a b c d e f))
+         (circular (mdcu:make-circular (copy-list list))))
+    (is
+     (and
+      (loop for x in (append list list) do (unless (equal x (pop circular)) (return nil))
+            finally (return t))) "Circular list does not repeat")
+    (is (eq circular (nthcdr (length list) circular)) "Cons cell is not repeated")))
+
+(test assoc-val-tests
+  :description "testing mdc-utilities:assoc-val"
+  (is (null (mdcu:assoc-val :foo nil)))
+  (is (null (mdcu:assoc-val :foo '((:bar . 42)))))
+  (is (equal (mdcu:assoc-val :foo '((:bar . 42) (:foo . needle))) 'needle)))

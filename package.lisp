@@ -13,4 +13,5 @@
            #:drop
            #:subseq*
            #:make-circular
-           #:assoc-val))
+           #:assoc-val
+           #:singlep))
