@@ -101,4 +101,10 @@
   :description "testing mdc-utilities:aval"
   (is (null (mdcu:aval :foo nil)))
   (is (null (mdcu:aval :foo '((:bar . 42)))))
-  (is (equal (mdcu:aval :foo '((:bar . 42) (:foo . needle))) 'needle)))
+  (multiple-value-bind (val found) (mdcu:aval :foo '((:bar . 42) (:foo . needle)))
+    (is (and found (equal val 'needle))))
+  (multiple-value-bind (val found) (mdcu:aval :foo '((:foo . nil)))
+    (is (and found (null val))))
+  (multiple-value-bind (val found) (mdcu:aval :bar '((:foo . nil)))
+    (is-false found)
+    (is-false val)))

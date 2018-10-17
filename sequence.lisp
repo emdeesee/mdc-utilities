@@ -56,6 +56,9 @@ list."
   (setf (cdr (last list)) list))
 
 (defun aval (item alist &rest assoc-kw-args)
-  "Retrieve the value related to a key from an alist"
-  (cdr (apply #'assoc item alist assoc-kw-args)))
+  "Retrieve the value related to a key from an alist. Returns two values: the value of the acons cell found or NIL if not found; and T if the key existed, or NIL if it did not."
+  (let ((a (apply #'assoc item alist assoc-kw-args)))
+    (if a
+        (values (cdr a) t)
+        (values nil nil))))
 
