@@ -23,7 +23,7 @@
   :version "0.0.1"
   :depends-on (:mdc-utilities :fiveam)
   :perform (test-op (o s)
-                    (uiop:symbol-call :fiveam :run! 'mdc-utilities-tests:all-tests))
+                    (uiop:symbol-call :mdc-utilities-tests :test-mdcu))
   :components ((:module "tests"
                 :serial t
                 :components ((:file "package")
