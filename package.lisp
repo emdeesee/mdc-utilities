@@ -14,4 +14,7 @@
            #:subseq*
            #:make-circular
            #:assoc-val
-           #:singlep))
+           #:singlep
+           #:tree-find-if
+           #:tree-find
+           #:file-get-contents))
