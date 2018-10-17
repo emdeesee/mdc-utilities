@@ -97,8 +97,8 @@
             finally (return t))) "Circular list does not repeat")
     (is (eq circular (nthcdr (length list) circular)) "Cons cell is not repeated")))
 
-(test assoc-val-tests
-  :description "testing mdc-utilities:assoc-val"
-  (is (null (mdcu:assoc-val :foo nil)))
-  (is (null (mdcu:assoc-val :foo '((:bar . 42)))))
-  (is (equal (mdcu:assoc-val :foo '((:bar . 42) (:foo . needle))) 'needle)))
+(test aval-tests
+  :description "testing mdc-utilities:aval"
+  (is (null (mdcu:aval :foo nil)))
+  (is (null (mdcu:aval :foo '((:bar . 42)))))
+  (is (equal (mdcu:aval :foo '((:bar . 42) (:foo . needle))) 'needle)))

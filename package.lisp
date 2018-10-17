@@ -13,7 +13,7 @@
            #:drop
            #:subseq*
            #:make-circular
-           #:assoc-val
+           #:aval
            #:singlep
            #:tree-find-if
            #:tree-find
