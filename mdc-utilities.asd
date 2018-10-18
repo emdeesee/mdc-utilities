@@ -11,8 +11,7 @@
   :serial t
   :components ((:file "package")
                (:file "sequence")
-               (:file "tree")
-               (:file "file"))
+               (:file "tree"))
   :depends-on (:alexandria)
   :in-order-to ((test-op (test-op "mdc-utilities/tests"))))
 
@@ -29,5 +28,4 @@
                 :components ((:file "package")
                              (:file "main")
                              (:file "sequence-tests")
-                             (:file "tree-tests")
-                             (:file "file-tests")))))
+                             (:file "tree-tests")))))
