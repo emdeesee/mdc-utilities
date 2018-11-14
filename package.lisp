@@ -16,5 +16,4 @@
            #:aval
            #:singlep
            #:tree-find-if
-           #:tree-find
-           #:file-get-contents))
+           #:tree-find))
