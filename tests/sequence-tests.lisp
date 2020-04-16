@@ -86,17 +86,6 @@
   (is (mdcu:singlep '(1)))
   (is-false (mdcu:singlep '(1 2))))
 
-(test make-circular-tests
-  :description "testing mdc-utilities:make-circular"
-  (signals type-error (mdcu:make-circular nil))
-  (let* ((list '(a b c d e f))
-         (circular (mdcu:make-circular (copy-list list))))
-    (is
-     (and
-      (loop for x in (append list list) do (unless (equal x (pop circular)) (return nil))
-            finally (return t))) "Circular list does not repeat")
-    (is (eq circular (nthcdr (length list) circular)) "Cons cell is not repeated")))
-
 (test aval-tests
   :description "testing mdc-utilities:aval"
   (is (null (mdcu:aval :foo nil)))

@@ -13,7 +13,6 @@
            #:take
            #:drop
            #:subseq*
-           #:make-circular
            #:aval
            #:singlep
            #:tree-find-if

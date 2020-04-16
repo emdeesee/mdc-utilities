@@ -51,9 +51,6 @@ list."
   (and (consp list) (not (cdr list))))
 
 
-(defun make-circular (list)
-  "Turn a list into a circular list"
-  (setf (cdr (last list)) list))
 
 (defun aval (item alist &rest assoc-kw-args)
   "Retrieve the value related to a key from an alist. Returns two values: the value of the acons cell found or NIL if not found; and T if the key existed, or NIL if it did not."
