@@ -6,7 +6,8 @@
 (defpackage #:mdc-utilities
   (:nicknames #:mdcu #:mdc-util)
   (:use #:cl #:alexandria)
-  (:export #:partition
+  (:export #:randomth
+           #:partition
            #:partition-by
            #:split-at
            #:take

@@ -62,3 +62,7 @@ list."
         (values (cdr a) t)
         (values nil nil))))
 
+
+
+(defun randomth (sequence &optional (random-state *random-state*))
+  (elt sequence (random (length sequence) random-state)))

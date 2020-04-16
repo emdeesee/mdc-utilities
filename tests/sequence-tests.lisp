@@ -108,3 +108,7 @@
   (multiple-value-bind (val found) (mdcu:aval :bar '((:foo . nil)))
     (is-false found)
     (is-false val)))
+
+(test randomth-tests
+      :description "testing mdc-utilities:randomth"
+      (is (null (mdcu:randomth nil))))
